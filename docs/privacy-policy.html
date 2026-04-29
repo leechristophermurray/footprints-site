@@ -268,7 +268,7 @@
 
     <div class="doc-header">
         <h1>Privacy Policy</h1>
-        <p class="effective">Effective date: March 22, 2026</p>
+        <p class="effective">Effective date: April 29, 2026</p>
     </div>
 
     <div class="doc-body">
@@ -276,8 +276,10 @@
         <h2>Introduction</h2>
         <p>Footprints ("the App") is a personal Bible study and wellness companion developed by Christopher Lee Murray
             ("we," "us," or "our"). We believe your spiritual life is deeply personal, and we have designed Footprints
-            with privacy as a foundational principle. This Privacy Policy explains what data the App collects, how it is
-            used, and how it is protected.</p>
+            with privacy as a foundational principle. This Privacy Policy applies to all surfaces Footprints runs on —
+            phones and tablets, Wear OS watches, Android TV, Android Auto, and Android Automotive (AAOS) — and the
+            standalone <em>Footprints Digital</em> watch face. It explains what data the App collects, how it is used,
+            and how it is protected.</p>
 
         <div class="callout">
             <p><strong>The short version:</strong> Your data stays on your device by default. AI processing happens
@@ -363,9 +365,29 @@
                     <td>On-device + Google's servers</td>
                 </tr>
                 <tr>
-                    <td>Scripture text (TTS)</td>
-                    <td>Spoken scripture during walks (if cloud TTS enabled)</td>
-                    <td>Google Cloud TTS (opt-in)</td>
+                    <td>Scripture text-to-speech</td>
+                    <td>Verse-by-verse spoken scripture ("TTS by Verse" mode)</td>
+                    <td>Android system TTS engine, on-device</td>
+                </tr>
+                <tr>
+                    <td>Streamed chapter audio</td>
+                    <td>Natural narration ("Narration by Chapter" mode and in-car / on-watch playback)</td>
+                    <td>Streamed from Cloudflare R2; cached locally</td>
+                </tr>
+                <tr>
+                    <td>AI Confidant model files</td>
+                    <td>Downloaded once for on-device AI inference</td>
+                    <td>Fetched from Cloudflare R2; runs on-device</td>
+                </tr>
+                <tr>
+                    <td>Phone ↔ watch state</td>
+                    <td>Mirror current chapter / playback to the wrist; surface complications + tile</td>
+                    <td>Wearable Data Layer (paired-device link)</td>
+                </tr>
+                <tr>
+                    <td>Cast control to TV</td>
+                    <td>"Play this chapter on TV" hand-off when a Cast device is selected</td>
+                    <td>Google Cast SDK (local network)</td>
                 </tr>
             </tbody>
         </table>
@@ -409,9 +431,21 @@
             <li><strong>Android Health Connect:</strong> For reading and writing exercise and mindfulness session data.
                 All Health Connect data remains on-device unless you configure Health Connect to sync elsewhere
                 independently.</li>
-            <li><strong>Google Cloud Text-to-Speech:</strong> If you opt into cloud-powered spoken scripture, the text
-                of the scripture passage is sent to Google's TTS API. No personal data is sent — only scripture text.
-            </li>
+            <li><strong>Cloudflare R2 (object storage):</strong> Hosts the public-domain KJV narration audio and the
+                AI Confidant model files. Your device fetches these as static assets over HTTPS — no account, no
+                credentials, no personal data is sent. Cloudflare's edge servers see your IP address and the URL of the
+                file you request, as is standard for any web download. Audio is cached locally so repeat playback is
+                offline. Subject to <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy
+                    Policy</a>.</li>
+            <li><strong>Android system TTS:</strong> Verse-by-verse spoken scripture uses the on-device TTS engine
+                provided by Android (typically Google Speech Services or the manufacturer's). No scripture text leaves
+                your device for this feature; the system engine renders speech locally.</li>
+            <li><strong>Google Play Services — Wearable Data Layer:</strong> Synchronises playback state and the daily
+                verse between a paired phone and watch. The link is between your two devices; nothing is stored on
+                Google's servers as part of this exchange beyond what Google Play Services itself transports.</li>
+            <li><strong>Google Cast SDK:</strong> Discovers Cast-enabled TVs on your local network so you can hand off
+                a chapter from your phone to your TV. Cast discovery is local-network only; no scripture content is
+                sent through Google's servers.</li>
         </ul>
 
         <h2>6. Data Storage and Retention</h2>
@@ -426,7 +460,10 @@
         <p>The only circumstances under which your data leaves your device are:</p>
         <ul>
             <li>Cross-device sync (opt-in, end-to-end encrypted, stored in your own Google Drive)</li>
-            <li>Cloud TTS (opt-in, scripture text only — no personal data)</li>
+            <li>Audio narration streaming and AI Confidant model downloads (a request to Cloudflare R2 for a static
+                asset; no personal data is sent — only the file URL and your IP)</li>
+            <li>Phone↔watch state mirroring (opt-in, between your own paired devices via the Wearable Data Layer)</li>
+            <li>Cast hand-off to TV (opt-in, local-network discovery of Cast devices)</li>
             <li>Rewarded ads (opt-in, ad interaction data collected by Google AdMob)</li>
             <li>If required by law, court order, or legal process</li>
         </ul>
@@ -476,7 +513,7 @@
             <a href="./">Home</a>
             <a href="terms-of-service.html">Terms of Service</a>
         </div>
-        <p class="footer-copy">&copy; 2025 Christopher Lee Murray. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Christopher Lee Murray. All rights reserved.</p>
     </footer>
 
 </body>
