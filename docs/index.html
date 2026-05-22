@@ -6,6 +6,8 @@
 <title>Footprints — Walk Your Path with the Word</title>
 <meta name="description" content="Footprints is a personal Bible study companion across phone, watch, TV, and car — featuring KJV scripture, narrated audio, AI-powered tools, mindful walks, journaling, and quizzes.">
 <meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="mask-icon" href="assets/footprints-mark.svg" color="#E3A12F">
 
 <!-- Flash-free theme boot — runs before paint. Reads stored preference, falls back to system. -->
 <script>
@@ -166,7 +168,13 @@
     text-transform: uppercase;
     color: var(--fp-gold);
   }
-  .hero .phone .brand-row .mark .c { margin-right: 6px; }
+  .hero .phone .brand-row .mark .c {
+    width: 11px;
+    height: 11px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: -1px;
+  }
   .hero .phone .brand-row .ic {
     color: var(--fg-subtle);
     font-size: 16px;
@@ -456,17 +464,19 @@
       linear-gradient(180deg, rgba(35,47,73,.6), rgba(35,47,73,.25));
     position: relative;
   }
-  .principles .promise::before {
-    content: '☩';
+  .principles .promise .badge {
     position: absolute;
     top: -22px; left: 36px;
     width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
     background: var(--bg);
     color: var(--fp-gold);
-    font-size: 22px;
     border: 1px solid var(--border-gold);
     border-radius: 999px;
+  }
+  .principles .promise .badge .fp-mark {
+    width: 22px;
+    height: 22px;
   }
   .principles .promise .eyebrow { margin-bottom: 16px; display: block; margin-top: 4px; }
   .principles .promise ul { list-style: none; }
@@ -498,6 +508,191 @@
     font-size: 13.5px;
     color: var(--fg-muted);
     font-weight: 400;
+  }
+
+  .principles .promise .promise-sep {
+    margin: 22px 0 18px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(227,161,47,.28), transparent);
+  }
+  .principles .promise .eyebrow--never {
+    color: var(--fp-mulberry);
+    display: block;
+  }
+  :root[data-theme="dark"] .principles .promise .eyebrow--never {
+    color: var(--fp-sand);
+  }
+  .principles .promise .never-list {
+    list-style: none;
+    margin-top: 4px;
+  }
+  .principles .promise .never-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-2);
+  }
+  .principles .promise .never-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .principles .promise .never-list .x {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--fp-mulberry);
+    flex: 0 0 26px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  :root[data-theme="dark"] .principles .promise .never-list .x {
+    color: var(--fp-sand);
+  }
+  .principles .promise .never-list .t {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+
+  /* ============================================================
+     CONTINUITY & ROADMAP
+     ============================================================ */
+  .continuity {
+    padding: 96px 32px 64px;
+  }
+  .continuity .header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+  }
+  .continuity .header .section-eyebrow { justify-content: center; margin-bottom: 18px; }
+  .continuity .header h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    color: var(--fg);
+  }
+  .continuity .header h2 em { font-style: italic; color: var(--fp-gold); font-weight: 400; }
+  .continuity .header p {
+    margin-top: 16px;
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--fg-muted);
+  }
+  .continuity .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .continuity .card {
+    padding: 30px 28px 32px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(35,47,73,.32);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .continuity .card .cat {
+    font-family: var(--font-ui);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--fp-gold);
+  }
+  .continuity .card h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.18;
+    color: var(--fg);
+    margin-top: 2px;
+  }
+  .continuity .card h3 em { font-style: italic; color: var(--fp-gold); font-weight: 400; }
+  .continuity .card p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--fg-muted);
+  }
+  :root[data-theme="light"] .continuity .card {
+    background: rgba(255,255,255,.5);
+  }
+
+  /* ============================================================
+     FAQ
+     ============================================================ */
+  .faq {
+    padding: 88px 32px 96px;
+  }
+  .faq .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .faq .header .section-eyebrow { justify-content: center; margin-bottom: 18px; }
+  .faq .header h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    color: var(--fg);
+  }
+  .faq .header h2 em { font-style: italic; color: var(--fp-gold); font-weight: 400; }
+  .faq .list {
+    border-top: 1px solid var(--border);
+  }
+  .faq details {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .faq summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--fg);
+    padding: 6px 0;
+    transition: color .2s ease;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+';
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--fp-gold);
+    line-height: 1;
+    flex: 0 0 24px;
+    text-align: right;
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { content: '\2212'; }
+  .faq summary:hover { color: var(--fp-gold); }
+  .faq details p {
+    margin-top: 12px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--fg-muted);
+    max-width: 64ch;
+  }
+  .faq details p + p { margin-top: 10px; }
+  .faq details code {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--fp-gold);
+    background: rgba(227,161,47,.08);
+    padding: 1px 6px;
+    border-radius: 4px;
   }
 
   /* ============================================================
@@ -565,6 +760,10 @@
     .features .card { min-height: 0; }
     .principles { padding: 64px 22px; }
     .principles .wrap { grid-template-columns: 1fr; gap: 48px; }
+    .continuity { padding: 72px 22px 48px; }
+    .continuity .grid { grid-template-columns: 1fr; gap: 16px; }
+    .faq { padding: 64px 22px 80px; }
+    .faq summary { font-size: 18px; }
     .cta-band { padding: 80px 22px; }
   }
   @media (max-width: 540px) {
@@ -579,12 +778,13 @@
 <!-- NAV -->
 <nav class="site-nav">
   <a href="./" class="brand">
-    <span class="cross">☩</span>
+    <svg class="cross fp-mark" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M189.944 438V409.84H234.488V269.04H97.272V313.584H69.112V196.336H97.272V240.88H234.488V100.592H189.944V72.432H307.192V100.592H262.648V240.88H406.52V196.336H434.68V313.584H406.52V269.04H262.648V409.84H307.192V438H189.944Z"/></svg>
     <span class="mark">Footprints</span>
   </a>
   <div class="links">
     <a href="#features">Features</a>
     <a href="#principles">Principles</a>
+    <a href="#faq">FAQ</a>
     <a href="privacy-policy.html">Privacy</a>
     <a href="https://play.google.com/store/apps/details?id=com.cntr.footprints" target="_blank" rel="noopener" class="cta">Get the app</a>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Theme: follow system" title="Theme: follow system">
@@ -625,8 +825,8 @@
       <div class="cta-row">
         <a href="https://play.google.com/store/apps/details?id=com.cntr.footprints"
            target="_blank" rel="noopener" class="btn btn-primary">
+          <svg class="play-icon" viewBox="0 0 960 960" fill="currentColor" aria-hidden="true"><path d="M629.816 562.299C541.126 473.91 530.44 493.685 632.812 410.289C742.674 488.691 763.349 464.421 629.816 562.299Z"/><path d="M531.639 463.122C256.782 200.251 271.963 188.066 592.163 384.121C595.06 387.117 606.645 389.614 601.352 394.708C577.981 417.279 555.309 439.951 531.639 463.122Z"/><path d="M338.578 701.226C398.004 635.209 463.722 573.985 525.345 509.666C530.239 504.672 532.136 504.572 536.83 509.366C558.603 531.438 580.376 553.611 602.149 575.783C536.431 633.71 436.656 681.351 346.868 703.124C343.172 702.225 340.875 701.725 338.578 701.226Z"/><path d="M310.314 691.039C298.529 701.226 289.141 663.274 291.638 656.881C288.542 629.016 259.877 202.35 317.106 289.441C373.935 347.069 431.163 404.197 488.192 461.626C492.587 469.815 513.56 478.504 505.97 488.093C439.253 554.21 372.736 620.827 310.314 691.039Z"/></svg>
           Get it on Google Play
-          <span aria-hidden="true">→</span>
         </a>
         <span class="cta-meta">Free baseline. No subscriptions. No premium tier.</span>
       </div>
@@ -641,7 +841,7 @@
         </div>
         <div class="scr">
           <div class="brand-row">
-            <span class="mark"><span class="c">☩</span>Footprints</span>
+            <span class="mark"><svg class="c fp-mark" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M189.944 438V409.84H234.488V269.04H97.272V313.584H69.112V196.336H97.272V240.88H234.488V100.592H189.944V72.432H307.192V100.592H262.648V240.88H406.52V196.336H434.68V313.584H406.52V269.04H262.648V409.84H307.192V438H189.944Z"/></svg>Footprints</span>
             <span class="ic">○</span>
           </div>
 
@@ -805,6 +1005,8 @@
       <h2>Built on <em>principles</em>.</h2>
       <p class="body">Footprints is designed with conviction: your spiritual life is deeply personal, and your data should stay that way. Every feature is built privacy-first, with on-device processing and zero-knowledge encryption.</p>
       <p class="body">There is no premium tier. Every user gets the full Footprints experience. The app is sustained by optional weekly contributions or a single rewarded ad — your choice.</p>
+      <p class="body">Footprints is denominationally neutral. The King James Version is the default because it is public domain — free to read, free to hear, free to carry across surfaces — not because of a doctrinal stance.</p>
+      <p class="body">It is a stewardship tool, not a substitute for community, a counselor, or a clinician. We hope it deepens your practice; we know it cannot replace people.</p>
 
       <div class="chips">
         <span>Privacy-first</span>
@@ -817,6 +1019,9 @@
     </div>
 
     <aside class="promise">
+      <span class="badge" aria-hidden="true">
+        <svg class="fp-mark" viewBox="0 0 512 512" fill="currentColor"><path d="M189.944 438V409.84H234.488V269.04H97.272V313.584H69.112V196.336H97.272V240.88H234.488V100.592H189.944V72.432H307.192V100.592H262.648V240.88H406.52V196.336H434.68V313.584H406.52V269.04H262.648V409.84H307.192V438H189.944Z"/></svg>
+      </span>
       <span class="eyebrow">Our quiet promise</span>
       <ul>
         <li>
@@ -844,10 +1049,115 @@
           </span>
         </li>
       </ul>
+
+      <div class="promise-sep" aria-hidden="true"></div>
+      <span class="eyebrow eyebrow--never">And what we won&rsquo;t</span>
+      <ul class="never-list">
+        <li>
+          <span class="x" aria-hidden="true">×</span>
+          <span class="t">We will never sell your data.</span>
+        </li>
+        <li>
+          <span class="x" aria-hidden="true">×</span>
+          <span class="t">We will never train AI models on your journals.</span>
+        </li>
+        <li>
+          <span class="x" aria-hidden="true">×</span>
+          <span class="t">We will never share your activity with your church, employer, or anyone else.</span>
+        </li>
+        <li>
+          <span class="x" aria-hidden="true">×</span>
+          <span class="t">We will never auto-detect spiritual or mental-health crises.</span>
+        </li>
+      </ul>
     </aside>
 
   </div>
 </section>
+
+<div class="divider-line"></div>
+
+<!-- CONTINUITY & ROADMAP -->
+<section class="continuity" id="continuity">
+  <div class="wrap">
+    <div class="header">
+      <div class="section-eyebrow"><span class="eyebrow">What you keep</span></div>
+      <h2>Yours to <em>keep</em>.</h2>
+      <p>Three commitments about your data, the app&rsquo;s future, and what happens if the path ever quiets.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="cat">Export</span>
+        <h3>Export <em>anything</em>, anytime</h3>
+        <p>Your notes, journals, highlights, and reading progress export as JSON or Markdown from the app&rsquo;s settings. Your data really is yours — including the file format.</p>
+      </article>
+
+      <article class="card">
+        <span class="cat">Continuity</span>
+        <h3>If we ever go <em>quiet</em></h3>
+        <p>Footprints has no servers that hold your data. If development stopped tomorrow, the installed app keeps working offline, your encrypted Drive backup remains in your own Google account, and your passphrase is still your key.</p>
+      </article>
+
+      <article class="card">
+        <span class="cat">Roadmap</span>
+        <h3>Where the path <em>leads</em></h3>
+        <p>Android is shipping today. iOS, macOS, Windows, and Linux desktop builds are in development on the same shared Rust core. No promised dates — only the direction.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap-read">
+    <div class="header">
+      <div class="section-eyebrow"><span class="eyebrow">Questions</span></div>
+      <h2>The honest <em>answers</em>.</h2>
+    </div>
+
+    <div class="list">
+      <details>
+        <summary>Is Footprints affiliated with a church or denomination?</summary>
+        <p>No. Footprints is independently developed and denominationally neutral. It defaults to the King James Version because the KJV is in the public domain — a practical choice, not a doctrinal one.</p>
+      </details>
+
+      <details>
+        <summary>Why KJV?</summary>
+        <p>Because it is the most widely beloved English translation that is free for everyone to read, hear, distribute, and adapt. Public-domain text means no licensing fees, no per-verse restrictions, and full control over offline reading, narrated audio, and on-device AI.</p>
+      </details>
+
+      <details>
+        <summary>Is iOS coming?</summary>
+        <p>Yes — it is on the roadmap. The Rust core that powers the Android, Tauri-desktop, and GTK Linux builds is shared, so iOS, macOS, and Windows builds use the same foundation. No public date yet.</p>
+      </details>
+
+      <details>
+        <summary>What happens to my $1?</summary>
+        <p>It pays for the things the app actually costs: Cloudflare R2 bandwidth for narrated audio and AI model downloads, the Google Play Developer fee, and the time spent building. Anything left over keeps the project sustainable. There is no investor takeout.</p>
+      </details>
+
+      <details>
+        <summary>Is the weekly $1 a subscription?</summary>
+        <p>No — it is an optional weekly contribution through Google Play Billing, processed one week at a time. Every Footprints feature works without it. You can also choose to watch a single rewarded ad instead, or do neither. There is no premium tier behind a paywall.</p>
+      </details>
+
+      <details>
+        <summary>How do I export or delete my data?</summary>
+        <p>All your data lives on your device. From the app&rsquo;s settings you can export everything as JSON or Markdown and delete locally stored data at any time. If you enabled cross-device sync, you can also remove the encrypted Drive backup from the same screen.</p>
+      </details>
+
+      <details>
+        <summary>What&rsquo;s the relationship between Footprints and <code>church.footprintsbible.com</code>?</summary>
+        <p>Footprints (the app) is a personal Bible study companion. The church management system at <code>church.footprintsbible.com</code> is a separate product on the same brand for congregations who want a private way to organize their community. The two are independent: the app never pushes your activity to any congregation, and the church platform never sees your personal study data.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
 
 <!-- CLOSING CTA -->
 <section class="cta-band">
@@ -858,8 +1168,8 @@
     <div class="cta-row">
       <a href="https://play.google.com/store/apps/details?id=com.cntr.footprints"
          target="_blank" rel="noopener" class="btn btn-primary">
+        <svg class="play-icon" viewBox="0 0 960 960" fill="currentColor" aria-hidden="true"><path d="M629.816 562.299C541.126 473.91 530.44 493.685 632.812 410.289C742.674 488.691 763.349 464.421 629.816 562.299Z"/><path d="M531.639 463.122C256.782 200.251 271.963 188.066 592.163 384.121C595.06 387.117 606.645 389.614 601.352 394.708C577.981 417.279 555.309 439.951 531.639 463.122Z"/><path d="M338.578 701.226C398.004 635.209 463.722 573.985 525.345 509.666C530.239 504.672 532.136 504.572 536.83 509.366C558.603 531.438 580.376 553.611 602.149 575.783C536.431 633.71 436.656 681.351 346.868 703.124C343.172 702.225 340.875 701.725 338.578 701.226Z"/><path d="M310.314 691.039C298.529 701.226 289.141 663.274 291.638 656.881C288.542 629.016 259.877 202.35 317.106 289.441C373.935 347.069 431.163 404.197 488.192 461.626C492.587 469.815 513.56 478.504 505.97 488.093C439.253 554.21 372.736 620.827 310.314 691.039Z"/></svg>
         Get it on Google Play
-        <span aria-hidden="true">→</span>
       </a>
       <a href="#features" class="btn btn-ghost">Read the features</a>
     </div>
@@ -871,13 +1181,17 @@
 <footer class="site-foot">
   <div class="wrap">
     <div class="brand-block">
-      <span class="cross">☩</span><span class="mark">Footprints</span>
+      <span class="brand-row">
+        <svg class="cross fp-mark" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M189.944 438V409.84H234.488V269.04H97.272V313.584H69.112V196.336H97.272V240.88H234.488V100.592H189.944V72.432H307.192V100.592H262.648V240.88H406.52V196.336H434.68V313.584H406.52V269.04H262.648V409.84H307.192V438H189.944Z"/></svg>
+        <span class="mark">Footprints</span>
+      </span>
       <p>A personal Bible study companion — quiet, private, and shaped around your own practice.</p>
     </div>
     <div class="col">
       <h4>The app</h4>
       <a href="#features">Features</a>
       <a href="#principles">Principles</a>
+      <a href="#faq">FAQ</a>
       <a href="https://play.google.com/store/apps/details?id=com.cntr.footprints" target="_blank" rel="noopener">Google Play</a>
     </div>
     <div class="col">
@@ -887,15 +1201,15 @@
       <a href="mailto:leechristophermurray@gmail.com">Contact</a>
     </div>
     <div class="col">
-      <h4>A word</h4>
-      <p class="verse">&ldquo;Thy word is a lamp unto my feet, and a light unto my path.&rdquo;
-        <span class="ref">Psalm 119:105 · KJV</span>
-      </p>
+      <h4>Credits</h4>
+      <span class="static">KJV scripture &mdash; public domain</span>
+      <a href="https://github.com/revjude/BTB" target="_blank" rel="noopener">BTB study tools &mdash; CC BY-SA 4.0</a>
+      <a href="https://www.openbible.info/geo/" target="_blank" rel="noopener">OpenBible geocoding &mdash; CC BY 4.0</a>
     </div>
   </div>
   <div class="site-foot-bottom">
-    <span>&copy; 2026 Christopher Lee Murray. All rights reserved.</span>
-    <span class="made">Made with care, in Alberta.</span>
+    <span>&copy; 2026 Christopher Lee Murray</span>
+    <span class="made">An independent project, made in Alberta.</span>
   </div>
 </footer>
 

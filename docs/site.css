@@ -258,9 +258,10 @@ a { color: inherit; text-decoration: none; }
 }
 .site-nav .brand .cross {
   color: var(--fp-gold);
-  font-size: 20px;
-  line-height: 1;
-  position: relative; top: -1px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex: 0 0 auto;
 }
 .site-nav .brand .mark {
   font-family: var(--font-display);
@@ -408,6 +409,19 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--fp-gold);
   color: var(--fp-gold);
 }
+.btn .play-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+/* ---------- Brand mark (SVG) ---------- */
+.fp-mark {
+  display: inline-block;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
 
 /* ---------- Footer ---------- */
 .site-foot {
@@ -421,6 +435,14 @@ a { color: inherit; text-decoration: none; }
   gap: 48px;
   align-items: flex-start;
 }
+.site-foot .brand-block {
+  display: block;
+}
+.site-foot .brand-block .brand-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 .site-foot .brand-block .mark {
   font-family: var(--font-display);
   font-weight: 400;
@@ -431,8 +453,10 @@ a { color: inherit; text-decoration: none; }
 }
 .site-foot .brand-block .cross {
   color: var(--fp-gold);
-  margin-right: 8px;
-  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  flex: 0 0 auto;
 }
 .site-foot .brand-block p {
   margin-top: 14px;
@@ -451,7 +475,8 @@ a { color: inherit; text-decoration: none; }
   color: var(--fp-gold);
   margin-bottom: 14px;
 }
-.site-foot .col a {
+.site-foot .col a,
+.site-foot .col .static {
   display: block;
   font-family: var(--font-ui);
   font-size: 13px;
@@ -460,6 +485,7 @@ a { color: inherit; text-decoration: none; }
   transition: color .15s ease;
 }
 .site-foot .col a:hover { color: var(--fg); }
+.site-foot .col .static { color: var(--fg-subtle); }
 .site-foot .verse {
   font-family: var(--font-body);
   font-style: italic;
@@ -498,4 +524,270 @@ a { color: inherit; text-decoration: none; }
     gap: 10px;
     text-align: center;
   }
+}
+
+/* ==========================================================================
+   DOC PAGES — privacy, terms
+   Parchment-and-gold prose layout for long legal text.
+   ========================================================================== */
+.doc-page {
+  padding: 140px 32px 96px;
+}
+.doc-page .doc-header {
+  max-width: var(--max-read);
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.doc-page .doc-header .opening {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.doc-page .doc-header .opening::before,
+.doc-page .doc-header .opening::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: rgba(227, 161, 47, .55);
+}
+.doc-page .doc-header h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -.015em;
+  color: var(--fg);
+  text-wrap: balance;
+}
+.doc-page .doc-header h1 em {
+  font-style: italic;
+  color: var(--fp-gold);
+  font-weight: 400;
+}
+.doc-page .doc-header .effective {
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--fg-subtle);
+}
+
+.doc-page .doc-body {
+  max-width: var(--max-read);
+  margin: 0 auto;
+}
+
+.doc-page .doc-body h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -.005em;
+  color: var(--fg);
+  margin-top: 64px;
+  padding-top: 28px;
+  position: relative;
+}
+.doc-page .doc-body h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background: rgba(227, 161, 47, .55);
+}
+.doc-page .doc-body h2:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+}
+.doc-page .doc-body h2:first-of-type::before { display: none; }
+.doc-page .doc-body h2 em {
+  font-style: italic;
+  color: var(--fp-gold);
+  font-weight: 400;
+}
+
+.doc-page .doc-body h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.28;
+  color: var(--fg);
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.doc-page .doc-body p {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+}
+.doc-page .doc-body ul,
+.doc-page .doc-body ol {
+  padding-left: 1.4rem;
+  margin-bottom: 16px;
+}
+.doc-page .doc-body li {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+}
+.doc-page .doc-body li::marker {
+  color: var(--fp-gold);
+}
+
+.doc-page .doc-body strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+.doc-page .doc-body em {
+  font-style: italic;
+}
+
+.doc-page .doc-body a {
+  color: var(--fp-gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(227, 161, 47, .32);
+  transition: border-color .2s ease, color .2s ease;
+}
+.doc-page .doc-body a:hover {
+  border-bottom-color: var(--fp-gold);
+}
+
+.doc-page .doc-body code {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--fp-gold);
+  background: rgba(227, 161, 47, .08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(227, 161, 47, .18);
+}
+
+/* Callout — mirrors hero verse style */
+.doc-page .callout {
+  margin: 24px 0;
+  padding: 18px 22px;
+  border-left: 2px solid var(--fp-gold);
+  background: linear-gradient(90deg, rgba(227, 161, 47, .08), transparent 80%);
+  border-radius: 0 8px 8px 0;
+}
+.doc-page .callout p {
+  margin-bottom: 0;
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+/* Tables — quiet, gold accent */
+.doc-page .doc-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-family: var(--font-body);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.doc-page .doc-body th,
+.doc-page .doc-body td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--fg-muted);
+  vertical-align: top;
+}
+.doc-page .doc-body tr:last-child td {
+  border-bottom: none;
+}
+.doc-page .doc-body th {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--fp-gold);
+  background: rgba(227, 161, 47, .07);
+  border-bottom: 1px solid var(--border-gold);
+}
+:root[data-theme="light"] .doc-page .doc-body th {
+  background: rgba(227, 161, 47, .12);
+}
+
+/* Caps-section — legalese disclaimers, kept readable */
+.doc-page .doc-body .caps-section {
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--fg-subtle);
+  letter-spacing: .01em;
+  text-transform: none;
+}
+
+/* Table-of-contents block (used on long docs) */
+.doc-page .toc {
+  max-width: var(--max-read);
+  margin: 0 auto 48px;
+  padding: 22px 26px 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(35, 47, 73, .35);
+}
+:root[data-theme="light"] .doc-page .toc {
+  background: rgba(255, 255, 255, .55);
+}
+.doc-page .toc .toc-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--fp-gold);
+  margin-bottom: 12px;
+}
+.doc-page .toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 32px;
+}
+.doc-page .toc li {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin: 4px 0;
+  break-inside: avoid;
+}
+.doc-page .toc li a {
+  color: var(--fg-muted);
+  border-bottom: none;
+}
+.doc-page .toc li a:hover { color: var(--fp-gold); }
+.doc-page .toc li .n {
+  display: inline-block;
+  width: 22px;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--fp-gold);
+}
+
+@media (max-width: 720px) {
+  .doc-page { padding: 110px 20px 64px; }
+  .doc-page .doc-body h2 { margin-top: 48px; padding-top: 22px; font-size: 24px; }
+  .doc-page .doc-body p,
+  .doc-page .doc-body li { font-size: 16px; }
+  .doc-page .toc ol { columns: 1; }
+  .doc-page .doc-body table { font-size: 13.5px; }
+  .doc-page .doc-body th,
+  .doc-page .doc-body td { padding: 10px 12px; }
 }
